@@ -153,6 +153,7 @@ pallet-im-online = { git = "https://github.com/atleta-network/polkadot-sdk", bra
 pallet-insecure-randomness-collective-flip = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
 pallet-membership = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
 pallet-message-queue = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
+pallet-multisig = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
 pallet-mmr = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
 pallet-nomination-pools = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }
 pallet-nomination-pools-runtime-api = { git = "https://github.com/atleta-network/polkadot-sdk", branch = "atleta-polkadot-v1.11.0", default-features = false }

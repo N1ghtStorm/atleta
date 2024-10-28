@@ -626,7 +626,7 @@ dependencies = [
  "futures-lite",
  "parking",
  "polling",
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "slab",
  "tracing",
  "windows-sys 0.59.0",
@@ -863,6 +863,7 @@ dependencies = [
  "pallet-membership",
  "pallet-message-queue",
  "pallet-mmr",
+ "pallet-multisig",
  "pallet-nomination-pools",
  "pallet-nomination-pools-runtime-api",
  "pallet-offences",
@@ -3481,7 +3482,7 @@ version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29f9df8a11882c4e3335eb2d18a0137c505d9ca927470b0cac9c6f0ae07d28f7"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "windows-sys 0.48.0",
 ]
 
@@ -4575,9 +4576,9 @@ dependencies = [
 
 [[package]]
 name = "libm"
-version = "0.2.8"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ec2a862134d2a7d32d7983ddcdd1c4923530833c9f2ea1a44fc5fa473989058"
+checksum = "3bda4c6077b0b08da2c48b172195795498381a7c8988c9e6212a6c55c5b9bd70"
 
 [[package]]
 name = "libp2p"
@@ -5333,7 +5334,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b2cffa4ad52c6f791f4f8b15f0c05f9824b2ced1160e88cc393d64fff9a8ac64"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.38",
 ]
 
 [[package]]
@@ -6911,6 +6912,22 @@ dependencies = [
  "sp-core",
  "sp-io",
  "sp-mmr-primitives",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-multisig"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-io",
  "sp-runtime",
  "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
 ]
@@ -8735,7 +8752,7 @@ dependencies = [
  "concurrent-queue",
  "hermit-abi 0.4.0",
  "pin-project-lite 0.2.15",
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "tracing",
  "windows-sys 0.59.0",
 ]
@@ -9706,9 +9723,9 @@ dependencies = [
 
 [[package]]
 name = "rustix"
-version = "0.38.37"
+version = "0.38.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8acb788b847c24f28525660c4d7758620a7210875711f79e7f663cc152726811"
+checksum = "aa260229e6538e52293eeb577aabd09945a09d6d9cc0fc550ed7529056c2e32a"
 dependencies = [
  "bitflags 2.6.0",
  "errno",
@@ -11828,7 +11845,7 @@ dependencies = [
 [[package]]
 name = "sp-crypto-ec-utils"
 version = "0.10.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "ark-bls12-377",
  "ark-bls12-377-ext",
@@ -11890,7 +11907,7 @@ dependencies = [
 [[package]]
 name = "sp-debug-derive"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -11910,7 +11927,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.25.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -12125,7 +12142,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "bytes",
  "impl-trait-for-tuples",
@@ -12157,7 +12174,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "17.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "Inflector",
  "expander 2.2.1",
@@ -12246,7 +12263,7 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 [[package]]
 name = "sp-std"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 
 [[package]]
 name = "sp-storage"
@@ -12263,7 +12280,7 @@ dependencies = [
 [[package]]
 name = "sp-storage"
 version = "19.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "impl-serde 0.5.0",
  "parity-scale-codec",
@@ -12298,7 +12315,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "16.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "parity-scale-codec",
  "tracing",
@@ -12395,7 +12412,7 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "20.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#860d93bdc90aad99a23ba403ac824db046d273f1"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "anyhow",
  "impl-trait-for-tuples",
@@ -12955,7 +12972,7 @@ dependencies = [
  "cfg-if",
  "fastrand",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "windows-sys 0.59.0",
 ]
 
@@ -12974,7 +12991,7 @@ version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4f599bd7ca042cfdf8f4512b277c02ba102247820f9d9d4a9f521f496751a6ef"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "windows-sys 0.59.0",
 ]
 
@@ -14214,7 +14231,7 @@ dependencies = [
  "either",
  "home",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.38",
 ]
 
 [[package]]

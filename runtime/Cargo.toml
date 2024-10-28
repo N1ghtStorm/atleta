@@ -62,6 +62,7 @@ pallet-grandpa = { workspace = true }
 pallet-im-online = { workspace = true }
 pallet-insecure-randomness-collective-flip = { workspace = true }
 pallet-membership = { workspace = true }
+pallet-multisig = { workspace = true }
 pallet-mmr = { workspace = true }
 pallet-message-queue = { workspace = true }
 pallet-nomination-pools = { workspace = true }
@@ -158,6 +159,7 @@ try-runtime = [
     "pallet-im-online/try-runtime",
     "pallet-insecure-randomness-collective-flip/try-runtime",
     "pallet-membership/try-runtime",
+    "pallet-multisig/try-runtime",
     "pallet-nomination-pools/try-runtime",
     "pallet-offences/try-runtime",
     "pallet-preimage/try-runtime",
@@ -220,6 +222,7 @@ std = [
     "pallet-insecure-randomness-collective-flip/std",
     "pallet-membership/std",
     "pallet-message-queue/std",
+    "pallet-multisig/std",
     "pallet-mmr/std",
     "pallet-nomination-pools/std",
     "pallet-nomination-pools-runtime-api/std",
@@ -281,6 +284,7 @@ runtime-benchmarks = [
     "pallet-ethereum/runtime-benchmarks",
     "pallet-evm/runtime-benchmarks",
     "pallet-grandpa/runtime-benchmarks",
+    "pallet-multisig/runtime-benchmarks",
     "pallet-message-queue/runtime-benchmarks",
     "pallet-hotfix-sufficients/runtime-benchmarks",
     "pallet-offences-benchmarking",

@@ -1134,6 +1134,24 @@ impl pallet_utility::Config for Runtime {
     type WeightInfo = pallet_utility::weights::SubstrateWeight<Runtime>;
 }
 
+parameter_types! {
+    // One storage item; key size is 32; value is size 4+4+16+32 bytes = 56 bytes.
+    pub const DepositBase: Balance = deposit(1, 88);
+    // Additional storage item size of 32 bytes.
+    pub const DepositFactor: Balance = deposit(0, 32);
+    pub const MaxSignatories: u32 = 100;
+}
+
+impl pallet_multisig::Config for Runtime {
+    type RuntimeEvent = RuntimeEvent;
+    type RuntimeCall = RuntimeCall;
+    type Currency = Balances;
+    type DepositBase = DepositBase;
+    type DepositFactor = DepositFactor;
+    type MaxSignatories = MaxSignatories;
+    type WeightInfo = ();
+}
+
 // offences
 impl pallet_offences::Config for Runtime {
     type RuntimeEvent = RuntimeEvent;
@@ -1576,6 +1594,7 @@ construct_runtime!(
         Historical: pallet_session::historical::{Pallet},
         AuthorityDiscovery: pallet_authority_discovery,
         Scheduler: pallet_scheduler,
+        Multisig: pallet_multisig,
         Preimage: pallet_preimage,
         NominationPools: pallet_nomination_pools,
         // EVM

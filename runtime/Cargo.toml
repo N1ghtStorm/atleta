@@ -13,17 +13,22 @@ targets = ["x86_64-unknown-linux-gnu"]
 log = { workspace = true }
 parity-scale-codec = { workspace = true }
 scale-info = { workspace = true }
+hex-literal = { workspace = true }
 static_assertions = "1.1"
 
 # Substrate
 sp-api = { workspace = true }
+sp-authority-discovery = { workspace = true }
 sp-block-builder = { workspace = true }
 sp-genesis-builder = { workspace = true }
 sp-consensus-babe = { workspace = true }
+sp-consensus-beefy = { workspace = true }
+binary-merkle-tree = { workspace = true }
 sp-consensus-grandpa = { workspace = true }
 sp-core = { workspace = true }
 sp-inherents = { workspace = true }
 sp-io = { workspace = true }
+sp-mmr-primitives = { workspace = true, default-features = false }
 sp-offchain = { workspace = true }
 sp-runtime = { workspace = true }
 sp-session = { workspace = true }
@@ -41,10 +46,13 @@ frame-system = { workspace = true }
 frame-system-benchmarking = { workspace = true, optional = true }
 frame-system-rpc-runtime-api = { workspace = true }
 frame-try-runtime = { workspace = true, optional = true }
+pallet-authority-discovery = { workspace = true }
 pallet-authorship = { workspace = true }
 pallet-babe = { workspace = true }
 pallet-bags-list = { workspace = true }
 pallet-balances = { workspace = true, features = ["insecure_zero_ed"] }
+pallet-beefy = { workspace = true }
+pallet-beefy-mmr = { workspace = true }
 pallet-collective = { workspace = true }
 pallet-contracts = { workspace = true }
 pallet-democracy = { workspace = true }
@@ -54,6 +62,9 @@ pallet-grandpa = { workspace = true }
 pallet-im-online = { workspace = true }
 pallet-insecure-randomness-collective-flip = { workspace = true }
 pallet-membership = { workspace = true }
+pallet-multisig = { workspace = true }
+pallet-mmr = { workspace = true }
+pallet-message-queue = { workspace = true }
 pallet-nomination-pools = { workspace = true }
 pallet-nomination-pools-runtime-api = { workspace = true }
 pallet-offences = { workspace = true }
@@ -71,6 +82,11 @@ pallet-transaction-payment-rpc-runtime-api = { workspace = true }
 pallet-treasury = { workspace = true }
 pallet-utility = { workspace = true }
 pallet-fast-unstake = { workspace = true }
+pallet-xcm = { workspace = true }
+xcm-fee-payment-runtime-api = { workspace = true }
+xcm = { workspace = true }
+xcm-builder = { workspace = true }
+xcm-executor = { workspace = true }
 
 # Frontier
 fp-account = { workspace = true, features = ["serde"] }
@@ -100,6 +116,13 @@ pallet-evm-precompile-babe = { workspace = true }
 pallet-evm-precompile-governance = { workspace = true }
 pallet-evm-precompile-treasury = { workspace = true }
 pallet-evm-precompile-preimage = { workspace = true }
+
+# Parachains
+runtime-parachains = { workspace = true }
+
+# Polkadot
+polkadot-primitives = { workspace = true }
+runtime-common = { workspace = true }
 
 [build-dependencies]
 substrate-wasm-builder = { workspace = true, optional = true }
@@ -136,6 +159,7 @@ try-runtime = [
     "pallet-im-online/try-runtime",
     "pallet-insecure-randomness-collective-flip/try-runtime",
     "pallet-membership/try-runtime",
+    "pallet-multisig/try-runtime",
     "pallet-nomination-pools/try-runtime",
     "pallet-offences/try-runtime",
     "pallet-preimage/try-runtime",
@@ -155,13 +179,16 @@ std = [
     "scale-info/std",
     # Substrate
     "sp-api/std",
+    "sp-authority-discovery/std",
     "sp-block-builder/std",
     "sp-genesis-builder/std",
     "sp-consensus-babe/std",
+    "sp-consensus-beefy/std",
     "sp-consensus-grandpa/std",
     "sp-core/std",
     "sp-inherents/std",
     "sp-io/std",
+    "sp-mmr-primitives/std",
     "sp-offchain/std",
     "sp-runtime/std",
     "sp-session/std",
@@ -183,6 +210,8 @@ std = [
     "pallet-babe/std",
     "pallet-bags-list/std",
     "pallet-balances/std",
+    "pallet-beefy/std",
+    "pallet-beefy-mmr/std",
     "pallet-collective/std",
     "pallet-contracts/std",
     "pallet-democracy/std",
@@ -192,6 +221,9 @@ std = [
     "pallet-im-online/std",
     "pallet-insecure-randomness-collective-flip/std",
     "pallet-membership/std",
+    "pallet-message-queue/std",
+    "pallet-multisig/std",
+    "pallet-mmr/std",
     "pallet-nomination-pools/std",
     "pallet-nomination-pools-runtime-api/std",
     "pallet-offences/std",
@@ -223,6 +255,16 @@ std = [
     "pallet-evm-precompile-simple/std",
     "pallet-evm/std",
     "pallet-hotfix-sufficients/std",
+    # Parachains
+    "runtime-parachains/std",
+    # Polkadot
+    "runtime-common/std",
+    # XCM
+    "xcm/std",
+    "xcm-executor/std",
+    "xcm-builder/std",
+    "pallet-xcm/std",
+    "xcm-fee-payment-runtime-api/std",
     # Atleta Pallets
     "pallet-faucet/std",
     # Atleta Precompile Pallets
@@ -242,9 +284,13 @@ runtime-benchmarks = [
     "pallet-ethereum/runtime-benchmarks",
     "pallet-evm/runtime-benchmarks",
     "pallet-grandpa/runtime-benchmarks",
+    "pallet-multisig/runtime-benchmarks",
+    "pallet-message-queue/runtime-benchmarks",
     "pallet-hotfix-sufficients/runtime-benchmarks",
     "pallet-offences-benchmarking",
     "pallet-contracts/runtime-benchmarks",
     "pallet-sudo/runtime-benchmarks",
     "pallet-timestamp/runtime-benchmarks",
+    "pallet-xcm/runtime-benchmarks",
+    "xcm-builder/runtime-benchmarks",
 ]

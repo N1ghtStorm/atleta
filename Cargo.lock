@@ -111,6 +111,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5c6cb57a04249c6480766f7f7cef5467412af1490f8d1e243141daddada3264f"
 
 [[package]]
+name = "always-assert"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4436e0292ab1bb631b42973c61205e704475fe8126af845c8d923c0996328127"
+
+[[package]]
 name = "android-tzdata"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -136,9 +142,9 @@ dependencies = [
 
 [[package]]
 name = "anstream"
-version = "0.6.15"
+version = "0.6.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "64e15c1ab1f89faffbf04a634d5e1962e9074f2741eef6d97f3c4e322426d526"
+checksum = "23a1e53f0f5d86382dafe1cf314783b2044280f406e7e1506368220ad11b1338"
 dependencies = [
  "anstyle",
  "anstyle-parse",
@@ -151,43 +157,43 @@ dependencies = [
 
 [[package]]
 name = "anstyle"
-version = "1.0.8"
+version = "1.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1bec1de6f59aedf83baf9ff929c98f2ad654b97c9510f4e70cf6f661d49fd5b1"
+checksum = "8365de52b16c035ff4fcafe0092ba9390540e3e352870ac09933bebcaa2c8c56"
 
 [[package]]
 name = "anstyle-parse"
-version = "0.2.5"
+version = "0.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eb47de1e80c2b463c735db5b217a0ddc39d612e7ac9e2e96a5aed1f57616c1cb"
+checksum = "3b2d16507662817a6a20a9ea92df6652ee4f94f914589377d69f3b21bc5798a9"
 dependencies = [
  "utf8parse",
 ]
 
 [[package]]
 name = "anstyle-query"
-version = "1.1.1"
+version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6d36fc52c7f6c869915e99412912f22093507da8d9e942ceaf66fe4b7c14422a"
+checksum = "79947af37f4177cfead1110013d678905c37501914fba0efea834c3fe9a8d60c"
 dependencies = [
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
 name = "anstyle-wincon"
-version = "3.0.4"
+version = "3.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bf74e1b6e971609db8ca7a9ce79fd5768ab6ae46441c572e46cf596f59e57f8"
+checksum = "2109dbce0e72be3ec00bed26e6a7479ca384ad226efdd66db8fa2e3a38c83125"
 dependencies = [
  "anstyle",
- "windows-sys 0.52.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
 name = "anyhow"
-version = "1.0.89"
+version = "1.0.91"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86fdf8605db99b54d3cd748a44c6d04df638eb5dafb219b135d0149bd0db01f6"
+checksum = "c042108f3ed77fd83760a5fd79b53be043192bb3b9dba91d8c574c0ada7850c8"
 
 [[package]]
 name = "approx"
@@ -223,7 +229,7 @@ dependencies = [
  "proc-macro-error",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -576,7 +582,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
- "synstructure",
+ "synstructure 0.12.6",
 ]
 
 [[package]]
@@ -620,7 +626,7 @@ dependencies = [
  "futures-lite",
  "parking",
  "polling",
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "slab",
  "tracing",
  "windows-sys 0.59.0",
@@ -634,7 +640,7 @@ checksum = "ff6e472cdea888a4bd64f342f09b3f50e1886d32afe8df3d663c01140b811b18"
 dependencies = [
  "event-listener 5.3.1",
  "event-listener-strategy",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -645,7 +651,7 @@ checksum = "721cae7de5c34fbb2acd27e21e6d2cf7b886dce0c27388d46c4e6c47ea4318dd"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -658,7 +664,7 @@ dependencies = [
  "futures-sink",
  "futures-util",
  "memchr",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -686,14 +692,60 @@ dependencies = [
  "frame-system-rpc-runtime-api",
  "futures",
  "hex-literal",
+ "is_executable",
  "jsonrpsee",
+ "kvdb-rocksdb",
  "log",
+ "mmr-gadget",
+ "mmr-rpc",
  "pallet-im-online",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc",
  "pallet-transaction-payment-rpc-runtime-api",
+ "parity-db",
  "parity-scale-codec",
+ "polkadot-approval-distribution",
+ "polkadot-availability-bitfield-distribution",
+ "polkadot-availability-distribution",
+ "polkadot-availability-recovery",
+ "polkadot-cli",
+ "polkadot-collator-protocol",
+ "polkadot-core-primitives",
+ "polkadot-dispute-distribution",
+ "polkadot-gossip-support",
+ "polkadot-network-bridge",
+ "polkadot-node-collation-generation",
+ "polkadot-node-core-approval-voting",
+ "polkadot-node-core-av-store",
+ "polkadot-node-core-backing",
+ "polkadot-node-core-bitfield-signing",
+ "polkadot-node-core-candidate-validation",
+ "polkadot-node-core-chain-api",
+ "polkadot-node-core-chain-selection",
+ "polkadot-node-core-dispute-coordinator",
+ "polkadot-node-core-parachains-inherent",
+ "polkadot-node-core-provisioner",
+ "polkadot-node-core-pvf",
+ "polkadot-node-core-pvf-checker",
+ "polkadot-node-core-pvf-common",
+ "polkadot-node-core-pvf-execute-worker",
+ "polkadot-node-core-pvf-prepare-worker",
+ "polkadot-node-core-runtime-api",
+ "polkadot-node-jaeger",
+ "polkadot-node-metrics",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-types",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "polkadot-rpc",
+ "polkadot-runtime-parachains",
+ "polkadot-service",
+ "polkadot-statement-distribution",
  "rand 0.8.5",
+ "sc-authority-discovery",
  "sc-basic-authorship",
  "sc-chain-spec",
  "sc-cli",
@@ -702,33 +754,44 @@ dependencies = [
  "sc-consensus",
  "sc-consensus-babe",
  "sc-consensus-babe-rpc",
+ "sc-consensus-beefy",
+ "sc-consensus-beefy-rpc",
  "sc-consensus-grandpa",
  "sc-consensus-grandpa-rpc",
  "sc-consensus-manual-seal",
  "sc-consensus-slots",
  "sc-executor",
  "sc-executor-wasmtime",
+ "sc-keystore",
  "sc-network",
  "sc-network-sync",
  "sc-offchain",
  "sc-rpc",
  "sc-rpc-api",
+ "sc-rpc-spec-v2",
  "sc-service",
+ "sc-storage-monitor",
+ "sc-sync-state-rpc",
+ "sc-sysinfo",
  "sc-telemetry",
+ "sc-tracing",
  "sc-transaction-pool",
  "sc-transaction-pool-api",
  "serde",
  "serde_json",
  "sp-api",
+ "sp-authority-discovery",
  "sp-block-builder",
  "sp-blockchain",
  "sp-consensus",
  "sp-consensus-babe",
+ "sp-consensus-beefy",
  "sp-consensus-grandpa",
  "sp-core",
  "sp-inherents",
  "sp-io",
  "sp-keystore",
+ "sp-mmr-primitives",
  "sp-offchain",
  "sp-runtime",
  "sp-session",
@@ -739,13 +802,16 @@ dependencies = [
  "substrate-build-script-utils",
  "substrate-frame-rpc-system",
  "substrate-prometheus-endpoint",
+ "substrate-state-trie-migration-rpc",
  "thiserror",
+ "tracing-gum",
 ]
 
 [[package]]
 name = "atleta-runtime"
 version = "0.0.0"
 dependencies = [
+ "binary-merkle-tree",
  "fp-account",
  "fp-evm",
  "fp-rpc",
@@ -758,12 +824,16 @@ dependencies = [
  "frame-system-benchmarking",
  "frame-system-rpc-runtime-api",
  "frame-try-runtime",
+ "hex-literal",
  "log",
+ "pallet-authority-discovery",
  "pallet-authorship",
  "pallet-babe",
  "pallet-bags-list",
  "pallet-balances",
  "pallet-base-fee",
+ "pallet-beefy",
+ "pallet-beefy-mmr",
  "pallet-collective",
  "pallet-contracts",
  "pallet-democracy",
@@ -791,6 +861,9 @@ dependencies = [
  "pallet-im-online",
  "pallet-insecure-randomness-collective-flip",
  "pallet-membership",
+ "pallet-message-queue",
+ "pallet-mmr",
+ "pallet-multisig",
  "pallet-nomination-pools",
  "pallet-nomination-pools-runtime-api",
  "pallet-offences",
@@ -807,16 +880,23 @@ dependencies = [
  "pallet-transaction-payment-rpc-runtime-api",
  "pallet-treasury",
  "pallet-utility",
+ "pallet-xcm",
  "parity-scale-codec",
+ "polkadot-primitives",
+ "polkadot-runtime-common",
+ "polkadot-runtime-parachains",
  "scale-info",
  "sp-api",
+ "sp-authority-discovery",
  "sp-block-builder",
  "sp-consensus-babe",
+ "sp-consensus-beefy",
  "sp-consensus-grandpa",
  "sp-core",
  "sp-genesis-builder",
  "sp-inherents",
  "sp-io",
+ "sp-mmr-primitives",
  "sp-offchain",
  "sp-runtime",
  "sp-session",
@@ -825,8 +905,12 @@ dependencies = [
  "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
  "sp-transaction-pool",
  "sp-version",
+ "staging-xcm",
+ "staging-xcm-builder",
+ "staging-xcm-executor",
  "static_assertions",
  "substrate-wasm-builder",
+ "xcm-fee-payment-runtime-api",
 ]
 
 [[package]]
@@ -846,7 +930,7 @@ checksum = "3c87f3f15e7794432337fc718554eaa4dc8f04c9677a950ffe366f20a162ae42"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -933,6 +1017,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "binary-merkle-tree"
+version = "13.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "hash-db",
+ "log",
+]
+
+[[package]]
 name = "bincode"
 version = "1.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -953,13 +1046,13 @@ dependencies = [
  "lazy_static",
  "lazycell",
  "peeking_take_while",
- "prettyplease 0.2.22",
+ "prettyplease 0.2.25",
  "proc-macro2",
  "quote",
  "regex",
  "rustc-hash",
  "shlex",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -998,6 +1091,7 @@ checksum = "1bc2832c24239b0141d5674bb9174f9d68a8b5b3f2753311927c172ca46f7e9c"
 dependencies = [
  "funty",
  "radium",
+ "serde",
  "tap",
  "wyz",
 ]
@@ -1089,6 +1183,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bounded-vec"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68534a48cbf63a4b1323c433cf21238c9ec23711e0df13b08c33e5c2082663ce"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "bs58"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1144,9 +1247,9 @@ checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
 name = "bytes"
-version = "1.7.2"
+version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "428d9aa8fbc0670b7b8d6030a7fadd0f86151cae55e4dbbece15f3780a3dfaf3"
+checksum = "9ac0150caa2ae65ca5bd83f25c7de183dea78d4d366469f148435e2acfbad0da"
 
 [[package]]
 name = "bzip2-sys"
@@ -1209,9 +1312,9 @@ checksum = "fd6c0e7b807d60291f42f33f58480c0bfafe28ed08286446f45e463728cf9c1c"
 
 [[package]]
 name = "cc"
-version = "1.1.30"
+version = "1.1.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b16803a61b81d9eabb7eae2588776c4c1e584b738ede45fdbb4c972cec1e9945"
+checksum = "c2e7962b54006dcfcc61cb72735f4d89bb97061dd6a7ed882ec6b8ee53714c6f"
 dependencies = [
  "jobserver",
  "libc",
@@ -1306,7 +1409,7 @@ dependencies = [
  "multibase",
  "multihash 0.17.0",
  "serde",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
 ]
 
 [[package]]
@@ -1319,7 +1422,7 @@ dependencies = [
  "multibase",
  "multihash 0.18.1",
  "serde",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
 ]
 
 [[package]]
@@ -1340,6 +1443,15 @@ dependencies = [
  "crypto-common",
  "inout",
  "zeroize",
+]
+
+[[package]]
+name = "ckb-merkle-mountain-range"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "56ccb671c5921be8a84686e6212ca184cb1d7c51cadcdbfcbd1cc3f042f5dfb8"
+dependencies = [
+ "cfg-if",
 ]
 
 [[package]]
@@ -1385,7 +1497,7 @@ dependencies = [
  "heck 0.5.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -1393,6 +1505,17 @@ name = "clap_lex"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1462739cb27611015575c0c11df5df7601141071f07518d56fcc1be504cbec97"
+
+[[package]]
+name = "coarsetime"
+version = "0.1.34"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "13b3839cf01bb7960114be3ccf2340f541b6d0c81f8690b007b2b39f750f7e5d"
+dependencies = [
+ "libc",
+ "wasix",
+ "wasm-bindgen",
+]
 
 [[package]]
 name = "codespan-reporting"
@@ -1406,9 +1529,9 @@ dependencies = [
 
 [[package]]
 name = "colorchoice"
-version = "1.0.2"
+version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d3fd119d74b830634cea2a0f58bbd0d54540518a14397557951e79340abc28c0"
+checksum = "5b63caa9aa9397e2d9480a9b13673856c78d8ac123288526c37d7839f2a86990"
 
 [[package]]
 name = "combine"
@@ -1550,6 +1673,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eeaa953eaad386a53111e47172c2fedba671e5684c8dd601a5f474f4f118710f"
 dependencies = [
  "cfg-if",
+]
+
+[[package]]
+name = "cpu-time"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e9e393a7668fe1fad3075085b86c781883000b4ede868f43627b34a87c8b7ded"
+dependencies = [
+ "libc",
+ "winapi",
 ]
 
 [[package]]
@@ -1812,7 +1945,7 @@ checksum = "f46882e17999c6cc590af592290432be3bce0428cb0d5f8b6715e4dc7b383eb3"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -1839,7 +1972,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "scratch",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -1856,7 +1989,7 @@ checksum = "a1719100f31492cd6adeeab9a0f46cdbc846e615fdb66d7b398aa46ec7fdd06f"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -1950,7 +2083,7 @@ checksum = "d65d7ce8132b7c0e54497a4d9a55a1c2a0912a0d786cf894472ba818fba45762"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -1963,7 +2096,27 @@ dependencies = [
  "proc-macro2",
  "quote",
  "rustc_version 0.4.1",
- "syn 2.0.79",
+ "syn 2.0.85",
+]
+
+[[package]]
+name = "derive_more"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a9b99b9cbbe49445b21764dc0625032a89b145a2642e67603e1c936f5458d05"
+dependencies = [
+ "derive_more-impl",
+]
+
+[[package]]
+name = "derive_more-impl"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cb7330aeadfbe296029522e6c40f315320aba36fc43a5b3632f3795348f3bd22"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -2052,7 +2205,7 @@ checksum = "97369cbbc041bc366949bc74d34658d6cda5621039731c6310521892a3a20ae0"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -2092,7 +2245,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "regex",
- "syn 2.0.79",
+ "syn 2.0.85",
  "termcolor",
  "toml 0.8.19",
  "walkdir",
@@ -2282,7 +2435,38 @@ dependencies = [
  "heck 0.5.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
+]
+
+[[package]]
+name = "enumflags2"
+version = "0.7.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d232db7f5956f3f14313dc2f87985c58bd2c695ce124c8cdd984e08e15ac133d"
+dependencies = [
+ "enumflags2_derive",
+]
+
+[[package]]
+name = "enumflags2_derive"
+version = "0.7.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "de0d48a183585823424a4ce1aa132d174a6a81bd540895822eb4c8373a8e49e8"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
+]
+
+[[package]]
+name = "enumn"
+version = "0.1.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f9ed6b3789237c8a0c1c505af1c7eb2c560df6186f01b098c3a1064ea532f38"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -2330,7 +2514,7 @@ dependencies = [
  "fixed-hash",
  "impl-codec 0.6.0",
  "impl-rlp",
- "impl-serde",
+ "impl-serde 0.4.0",
  "scale-info",
  "tiny-keccak",
 ]
@@ -2363,7 +2547,7 @@ dependencies = [
  "fixed-hash",
  "impl-codec 0.6.0",
  "impl-rlp",
- "impl-serde",
+ "impl-serde 0.4.0",
  "primitive-types 0.12.2",
  "scale-info",
  "uint 0.9.5",
@@ -2383,7 +2567,7 @@ checksum = "6032be9bd27023a771701cc49f9f053c751055f71efb2e0ae5c15809093675ba"
 dependencies = [
  "concurrent-queue",
  "parking",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -2393,7 +2577,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0f214dc438f977e6d4e3500aaa277f5ad94ca83fbbd9b1a15713ce2344ccc5a1"
 dependencies = [
  "event-listener 5.3.1",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -2465,6 +2649,18 @@ dependencies = [
 
 [[package]]
 name = "expander"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a718c0675c555c5f976fff4ea9e2c150fa06cefa201cadef87cfbf9324075881"
+dependencies = [
+ "blake3",
+ "fs-err",
+ "proc-macro2",
+ "quote",
+]
+
+[[package]]
+name = "expander"
 version = "2.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2c470c71d91ecbd179935b24170459e926382eaaa86b590b78814e180d8a8e2"
@@ -2472,10 +2668,10 @@ dependencies = [
  "blake2 0.10.6",
  "file-guard",
  "fs-err",
- "prettyplease 0.2.22",
+ "prettyplease 0.2.25",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -2495,6 +2691,31 @@ name = "fastrand"
 version = "2.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e8c02a5121d4ea3eb16a80748c74f5549a5665e4c21333c6098f283870fbdea6"
+
+[[package]]
+name = "fatality"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2ad875162843b0d046276327afe0136e9ed3a23d5a754210fb6f1f33610d39ab"
+dependencies = [
+ "fatality-proc-macro",
+ "thiserror",
+]
+
+[[package]]
+name = "fatality-proc-macro"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f5aa1e3ae159e592ad222dc90c5acbad632b527779ba88486abe92782ab268bd"
+dependencies = [
+ "expander 0.0.4",
+ "indexmap 1.9.3",
+ "proc-macro-crate 1.1.3",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+ "thiserror",
+]
 
 [[package]]
 name = "fc-api"
@@ -2808,9 +3029,9 @@ dependencies = [
 
 [[package]]
 name = "flume"
-version = "0.11.0"
+version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "55ac459de2512911e4b674ce33cf20befaba382d05b62b008afc1c8b57cbf181"
+checksum = "da0e4dd2a88388a1f4ccc7c9ce104604dab68d9f408dc34cd45823d5a9069095"
 dependencies = [
  "futures-core",
  "futures-sink",
@@ -2861,7 +3082,7 @@ version = "1.0.0-dev"
 source = "git+https://github.com/atleta-network/frontier?branch=atleta-polkadot-v1.11.0#34b47ba2c9c64e51faa73847e53408f507887f67"
 dependencies = [
  "hex",
- "impl-serde",
+ "impl-serde 0.4.0",
  "libsecp256k1",
  "log",
  "parity-scale-codec",
@@ -3047,7 +3268,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -3147,7 +3368,7 @@ dependencies = [
  "Inflector",
  "cfg-expr",
  "derive-syn-parse",
- "expander",
+ "expander 2.2.1",
  "frame-support-procedural-tools",
  "itertools 0.10.5",
  "macro_magic",
@@ -3155,7 +3376,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "sp-crypto-hashing",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -3167,7 +3388,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -3177,7 +3398,7 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -3256,6 +3477,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "fs4"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "29f9df8a11882c4e3335eb2d18a0137c505d9ca927470b0cac9c6f0ae07d28f7"
+dependencies = [
+ "rustix 0.38.38",
+ "windows-sys 0.48.0",
+]
+
+[[package]]
 name = "funty"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3328,7 +3559,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "52527eb5074e35e9339c6b4e8d12600c7128b68fb25dcb9fa9dec18f7c25f3a5"
 dependencies = [
  "futures-core",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -3339,7 +3570,7 @@ checksum = "162ee34ebcb7c64a8abebc059ce0fee27c2262618d7b60ed8faf72fef13c3650"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -3384,7 +3615,7 @@ dependencies = [
  "futures-sink",
  "futures-task",
  "memchr",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "pin-utils",
  "slab",
 ]
@@ -3748,7 +3979,7 @@ checksum = "7ceab25649e9960c0311ea418d17bee82c0dcec1bd053b5f9a66e265a693bed2"
 dependencies = [
  "bytes",
  "http",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
 ]
 
 [[package]]
@@ -3791,7 +4022,7 @@ dependencies = [
  "httparse",
  "httpdate",
  "itoa",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "socket2 0.5.7",
  "tokio",
  "tower-service",
@@ -3946,6 +4177,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "impl-serde"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a143eada6a1ec4aefa5049037a26a6d597bfd64f8c026d07b77133e02b7dd0b"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "impl-trait-for-tuples"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4021,6 +4261,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "integer-encoding"
+version = "3.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8bb03732005da905c88227371639bf1ad885cc712789c011c31c5fb3ab3ccf02"
+
+[[package]]
 name = "integer-sqrt"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4076,6 +4322,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "is_executable"
+version = "1.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d4a1b5bad6f9072935961dfbf1cced2f3d129963d091b6f69f007fe04e758ae2"
+dependencies = [
+ "winapi",
+]
+
+[[package]]
 name = "is_terminal_polyfill"
 version = "1.70.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4086,6 +4341,15 @@ name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b1c173a5686ce8bfa551b3563d0c2170bf24ca44da99c7ca4bfdab5418c3fe57"
 dependencies = [
  "either",
 ]
@@ -4169,7 +4433,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -4272,6 +4536,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "landlock"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9baa9eeb6e315942429397e617a190f4fdc696ef1ee0342939d641029cbb4ea7"
+dependencies = [
+ "enumflags2",
+ "libc",
+ "thiserror",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4301,9 +4576,9 @@ dependencies = [
 
 [[package]]
 name = "libm"
-version = "0.2.8"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ec2a862134d2a7d32d7983ddcdd1c4923530833c9f2ea1a44fc5fa473989058"
+checksum = "3bda4c6077b0b08da2c48b172195795498381a7c8988c9e6212a6c55c5b9bd70"
 
 [[package]]
 name = "libp2p"
@@ -4386,7 +4661,7 @@ dependencies = [
  "rw-stream-sink",
  "smallvec",
  "thiserror",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
  "void",
 ]
 
@@ -4468,7 +4743,7 @@ dependencies = [
  "smallvec",
  "thiserror",
  "uint 0.9.5",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
  "void",
 ]
 
@@ -4897,7 +5172,7 @@ dependencies = [
  "tracing",
  "trust-dns-resolver 0.23.2",
  "uint 0.9.5",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
  "url",
  "webpki",
  "x25519-dalek 2.0.1",
@@ -4977,7 +5252,7 @@ dependencies = [
  "macro_magic_core",
  "macro_magic_macros",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -4991,7 +5266,7 @@ dependencies = [
  "macro_magic_core_macros",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5002,7 +5277,7 @@ checksum = "b02abfe41815b5bd98dbd4260173db2c116dda171dc0fe7838cb206333b83308"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5013,7 +5288,7 @@ checksum = "73ea28ee64b88876bf45277ed9a5817c1817df061a74f2b988971a12570e5869"
 dependencies = [
  "macro_magic_core",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5059,7 +5334,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b2cffa4ad52c6f791f4f8b15f0c05f9824b2ced1160e88cc393d64fff9a8ac64"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.38",
 ]
 
 [[package]]
@@ -5108,6 +5383,17 @@ dependencies = [
  "keccak",
  "rand_core 0.6.4",
  "zeroize",
+]
+
+[[package]]
+name = "mick-jaeger"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "69672161530e8aeca1d1400fbf3f1a1747ff60ea604265a4e906c2442df20532"
+dependencies = [
+ "futures",
+ "rand 0.8.5",
+ "thrift",
 ]
 
 [[package]]
@@ -5163,6 +5449,40 @@ dependencies = [
 ]
 
 [[package]]
+name = "mmr-gadget"
+version = "29.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "log",
+ "parity-scale-codec",
+ "sc-client-api",
+ "sc-offchain",
+ "sp-api",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-beefy",
+ "sp-core",
+ "sp-mmr-primitives",
+ "sp-runtime",
+]
+
+[[package]]
+name = "mmr-rpc"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "jsonrpsee",
+ "parity-scale-codec",
+ "serde",
+ "sp-api",
+ "sp-blockchain",
+ "sp-core",
+ "sp-mmr-primitives",
+ "sp-runtime",
+]
+
+[[package]]
 name = "mockall"
 version = "0.11.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5213,7 +5533,7 @@ dependencies = [
  "cfg-if",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5231,7 +5551,7 @@ dependencies = [
  "percent-encoding",
  "serde",
  "static_assertions",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
  "url",
 ]
 
@@ -5257,10 +5577,10 @@ dependencies = [
  "blake3",
  "core2",
  "digest 0.10.7",
- "multihash-derive",
+ "multihash-derive 0.8.1",
  "sha2 0.10.8",
  "sha3",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
 ]
 
 [[package]]
@@ -5274,10 +5594,40 @@ dependencies = [
  "blake3",
  "core2",
  "digest 0.10.7",
- "multihash-derive",
+ "multihash-derive 0.8.1",
  "sha2 0.10.8",
  "sha3",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
+]
+
+[[package]]
+name = "multihash"
+version = "0.19.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc41f430805af9d1cf4adae4ed2149c759b877b01d909a1f40256188d09345d2"
+dependencies = [
+ "core2",
+ "unsigned-varint 0.8.0",
+]
+
+[[package]]
+name = "multihash-codetable"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f6d815ecb3c8238d00647f8630ede7060a642c9f704761cd6082cb4028af6935"
+dependencies = [
+ "blake2b_simd",
+ "blake2s_simd",
+ "blake3",
+ "core2",
+ "digest 0.10.7",
+ "multihash-derive 0.9.1",
+ "ripemd",
+ "serde",
+ "sha1",
+ "sha2 0.10.8",
+ "sha3",
+ "strobe-rs",
 ]
 
 [[package]]
@@ -5291,7 +5641,31 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
- "synstructure",
+ "synstructure 0.12.6",
+]
+
+[[package]]
+name = "multihash-derive"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1f1b7edab35d920890b88643a765fc9bd295cf0201f4154dda231bef9b8404eb"
+dependencies = [
+ "core2",
+ "multihash 0.19.2",
+ "multihash-derive-impl",
+]
+
+[[package]]
+name = "multihash-derive-impl"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e3dc7141bd06405929948754f0628d247f5ca1865be745099205e5086da957cb"
+dependencies = [
+ "proc-macro-crate 3.2.0",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
+ "synstructure 0.13.1",
 ]
 
 [[package]]
@@ -5311,7 +5685,7 @@ dependencies = [
  "log",
  "pin-project",
  "smallvec",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
 ]
 
 [[package]]
@@ -5337,6 +5711,12 @@ checksum = "7bddcd3bf5144b6392de80e04c347cd7fab2508f6df16a85fc496ecd5cec39bc"
 dependencies = [
  "rand 0.8.5",
 ]
+
+[[package]]
+name = "nanorand"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a51313c5820b0b02bd422f4b44776fbf47961755c74ce64afc73bfad10226c3"
 
 [[package]]
 name = "native-tls"
@@ -5440,6 +5820,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fa52e972a9a719cecb6864fb88568781eb706bac2cd1d4f04a648542dbf78069"
 dependencies = [
  "bitflags 1.3.2",
+ "cfg-if",
+ "libc",
+]
+
+[[package]]
+name = "nix"
+version = "0.27.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2eb04e9c688eff1c89d72b407f168cf79bb9e867a9d3323ed6c01519eb9cc053"
+dependencies = [
+ "bitflags 2.6.0",
  "cfg-if",
  "libc",
 ]
@@ -5606,7 +5997,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5689,7 +6080,7 @@ checksum = "a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -5700,9 +6091,9 @@ checksum = "ff011a302c396a5197692431fc1948019154afc178baf7d8e37367442a4601cf"
 
 [[package]]
 name = "openssl-src"
-version = "300.3.2+3.3.2"
+version = "300.4.0+3.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a211a18d945ef7e648cc6e0058f4c548ee46aab922ea203e0d30e966ea23647b"
+checksum = "a709e02f2b4aca747929cca5ed248880847c650233cf8b8cdc48f40aaf4898a6"
 dependencies = [
  "cc",
 ]
@@ -5727,10 +6118,83 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
 
 [[package]]
+name = "orchestra"
+version = "0.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "92829eef0328a3d1cd22a02c0e51deb92a5362df3e7d21a4e9bdc38934694e66"
+dependencies = [
+ "async-trait",
+ "dyn-clonable",
+ "futures",
+ "futures-timer",
+ "orchestra-proc-macro",
+ "pin-project",
+ "prioritized-metered-channel",
+ "thiserror",
+ "tracing",
+]
+
+[[package]]
+name = "orchestra-proc-macro"
+version = "0.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1344346d5af32c95bbddea91b18a88cc83eac394192d20ef2fc4c40a74332355"
+dependencies = [
+ "expander 2.2.1",
+ "indexmap 2.6.0",
+ "itertools 0.11.0",
+ "petgraph",
+ "proc-macro-crate 3.2.0",
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
+name = "ordered-float"
+version = "1.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3305af35278dd29f46fcdd139e0b1fbfae2153f0e5928b39b035542dd31e37b7"
+dependencies = [
+ "num-traits",
+]
+
+[[package]]
 name = "overload"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
+
+[[package]]
+name = "pallet-asset-rate"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-core",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-authority-discovery"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "pallet-session",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-application-crypto",
+ "sp-authority-discovery",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
 
 [[package]]
 name = "pallet-authorship"
@@ -5823,6 +6287,70 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-beefy"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "log",
+ "pallet-authorship",
+ "pallet-session",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-consensus-beefy",
+ "sp-runtime",
+ "sp-session",
+ "sp-staking",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-beefy-mmr"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "array-bytes 6.2.3",
+ "binary-merkle-tree",
+ "frame-support",
+ "frame-system",
+ "log",
+ "pallet-beefy",
+ "pallet-mmr",
+ "pallet-session",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-consensus-beefy",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-state-machine",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-broker"
+version = "0.6.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-api",
+ "sp-arithmetic",
+ "sp-core",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
 name = "pallet-collective"
 version = "28.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -5879,7 +6407,7 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -6283,6 +6811,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-identity"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "enumflags2",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-io",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
 name = "pallet-im-online"
 version = "27.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -6328,6 +6873,60 @@ dependencies = [
  "parity-scale-codec",
  "scale-info",
  "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-message-queue"
+version = "31.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "environmental",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-arithmetic",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-weights",
+]
+
+[[package]]
+name = "pallet-mmr"
+version = "27.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-core",
+ "sp-io",
+ "sp-mmr-primitives",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-multisig"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
  "sp-io",
  "sp-runtime",
  "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
@@ -6491,7 +7090,16 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
+]
+
+[[package]]
+name = "pallet-staking-reward-fn"
+version = "19.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "log",
+ "sp-arithmetic",
 ]
 
 [[package]]
@@ -6617,6 +7225,45 @@ dependencies = [
  "sp-io",
  "sp-runtime",
  "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-vesting"
+version = "28.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "pallet-xcm"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bounded-collections",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "log",
+ "pallet-balances",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "staging-xcm",
+ "staging-xcm-builder",
+ "staging-xcm-executor",
+ "xcm-fee-payment-runtime-api",
 ]
 
 [[package]]
@@ -6831,7 +7478,7 @@ dependencies = [
  "pest_meta",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -6857,22 +7504,22 @@ dependencies = [
 
 [[package]]
 name = "pin-project"
-version = "1.1.6"
+version = "1.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "baf123a161dde1e524adf36f90bc5d8d3462824a9c43553ad07a8183161189ec"
+checksum = "be57f64e946e500c8ee36ef6331845d40a93055567ec57e8fae13efd33759b95"
 dependencies = [
  "pin-project-internal",
 ]
 
 [[package]]
 name = "pin-project-internal"
-version = "1.1.6"
+version = "1.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4502d8515ca9f32f1fb543d987f63d95a14934883db45bdb48060b6b69257f8"
+checksum = "3c0f5fad0874fc7abcd4d750e76917eaebbecaa2c20bde22e1dbeeba8beb758c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -6883,9 +7530,9 @@ checksum = "257b64915a082f7811703966789728173279bdebb956b143dbcd23f6f970a777"
 
 [[package]]
 name = "pin-project-lite"
-version = "0.2.14"
+version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bda66fc9667c18cb2758a2ac84d1167245054bcf85d5d1aaa6923f45801bdd02"
+checksum = "915a1e146535de9163f3987b8944ed8cf49a18bb0056bcebcdcece385cece4ff"
 
 [[package]]
 name = "pin-utils"
@@ -6910,6 +7557,138 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "953ec861398dccce10c670dfeaf3ec4911ca479e9c02154b3a215178c5f566f2"
 
 [[package]]
+name = "polkadot-approval-distribution"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "futures",
+ "futures-timer",
+ "itertools 0.10.5",
+ "polkadot-node-jaeger",
+ "polkadot-node-metrics",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-availability-bitfield-distribution"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "always-assert",
+ "futures",
+ "futures-timer",
+ "polkadot-node-network-protocol",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-availability-distribution"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "derive_more 0.99.18",
+ "fatality",
+ "futures",
+ "parity-scale-codec",
+ "polkadot-erasure-coding",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "schnellru",
+ "sp-core",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-availability-recovery"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "fatality",
+ "futures",
+ "parity-scale-codec",
+ "polkadot-erasure-coding",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "sc-network",
+ "schnellru",
+ "thiserror",
+ "tokio",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-cli"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "cfg-if",
+ "clap",
+ "frame-benchmarking-cli",
+ "futures",
+ "log",
+ "polkadot-node-metrics",
+ "polkadot-node-primitives",
+ "polkadot-service",
+ "sc-cli",
+ "sc-executor",
+ "sc-service",
+ "sc-storage-monitor",
+ "sc-sysinfo",
+ "sc-tracing",
+ "sp-core",
+ "sp-io",
+ "sp-keyring",
+ "sp-maybe-compressed-blob",
+ "sp-runtime",
+ "substrate-build-script-utils",
+ "thiserror",
+]
+
+[[package]]
+name = "polkadot-collator-protocol"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "fatality",
+ "futures",
+ "futures-timer",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sp-core",
+ "sp-keystore",
+ "sp-runtime",
+ "thiserror",
+ "tokio-util",
+ "tracing-gum",
+]
+
+[[package]]
 name = "polkadot-core-primitives"
 version = "7.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -6922,12 +7701,633 @@ dependencies = [
 ]
 
 [[package]]
+name = "polkadot-dispute-distribution"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "derive_more 0.99.18",
+ "fatality",
+ "futures",
+ "futures-timer",
+ "indexmap 2.6.0",
+ "parity-scale-codec",
+ "polkadot-erasure-coding",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sc-network",
+ "schnellru",
+ "sp-application-crypto",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-erasure-coding"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "parity-scale-codec",
+ "polkadot-node-primitives",
+ "polkadot-primitives",
+ "reed-solomon-novelpoly",
+ "sp-core",
+ "sp-trie",
+ "thiserror",
+]
+
+[[package]]
+name = "polkadot-gossip-support"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "futures-timer",
+ "polkadot-node-network-protocol",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "rand_chacha 0.3.1",
+ "sc-network",
+ "sc-network-common",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-crypto-hashing",
+ "sp-keystore",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-network-bridge"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "always-assert",
+ "async-trait",
+ "bytes",
+ "fatality",
+ "futures",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "polkadot-node-metrics",
+ "polkadot-node-network-protocol",
+ "polkadot-node-subsystem",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "sc-network",
+ "sp-consensus",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-collation-generation"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "parity-scale-codec",
+ "polkadot-erasure-coding",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sp-core",
+ "sp-maybe-compressed-blob",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-approval-voting"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "derive_more 0.99.18",
+ "futures",
+ "futures-timer",
+ "itertools 0.10.5",
+ "kvdb",
+ "merlin",
+ "parity-scale-codec",
+ "polkadot-node-jaeger",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "rand_chacha 0.3.1",
+ "rand_core 0.6.4",
+ "sc-keystore",
+ "schnellru",
+ "schnorrkel",
+ "sp-application-crypto",
+ "sp-consensus",
+ "sp-consensus-slots",
+ "sp-runtime",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-av-store"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "futures",
+ "futures-timer",
+ "kvdb",
+ "parity-scale-codec",
+ "polkadot-erasure-coding",
+ "polkadot-node-jaeger",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "sp-consensus",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-backing"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "fatality",
+ "futures",
+ "polkadot-erasure-coding",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "polkadot-statement-table",
+ "schnellru",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-bitfield-signing"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+ "wasm-timer",
+]
+
+[[package]]
+name = "polkadot-node-core-candidate-validation"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "futures",
+ "futures-timer",
+ "parity-scale-codec",
+ "polkadot-node-core-pvf",
+ "polkadot-node-metrics",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "sp-maybe-compressed-blob",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-chain-api"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "polkadot-node-metrics",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-types",
+ "sc-client-api",
+ "sc-consensus-babe",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-chain-selection"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "futures-timer",
+ "kvdb",
+ "parity-scale-codec",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-dispute-coordinator"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "fatality",
+ "futures",
+ "kvdb",
+ "parity-scale-codec",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sc-keystore",
+ "schnellru",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-parachains-inherent"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "futures",
+ "futures-timer",
+ "polkadot-node-subsystem",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "sp-blockchain",
+ "sp-inherents",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-prospective-parachains"
+version = "6.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "fatality",
+ "futures",
+ "parity-scale-codec",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-provisioner"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "fatality",
+ "futures",
+ "futures-timer",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "schnellru",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-pvf"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "always-assert",
+ "array-bytes 6.2.3",
+ "blake3",
+ "cfg-if",
+ "futures",
+ "futures-timer",
+ "parity-scale-codec",
+ "pin-project",
+ "polkadot-core-primitives",
+ "polkadot-node-core-pvf-common",
+ "polkadot-node-metrics",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "slotmap",
+ "sp-core",
+ "tempfile",
+ "thiserror",
+ "tokio",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-pvf-checker"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-pvf-common"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "cpu-time",
+ "futures",
+ "landlock",
+ "libc",
+ "nix 0.27.1",
+ "parity-scale-codec",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "sc-executor",
+ "sc-executor-common",
+ "sc-executor-wasmtime",
+ "seccompiler",
+ "sp-core",
+ "sp-crypto-hashing",
+ "sp-externalities 0.25.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-io",
+ "sp-tracing 16.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-pvf-execute-worker"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "cfg-if",
+ "cpu-time",
+ "libc",
+ "nix 0.27.1",
+ "parity-scale-codec",
+ "polkadot-node-core-pvf-common",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-pvf-prepare-worker"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "blake3",
+ "cfg-if",
+ "libc",
+ "nix 0.27.1",
+ "parity-scale-codec",
+ "polkadot-node-core-pvf-common",
+ "polkadot-primitives",
+ "rayon",
+ "sc-executor-common",
+ "sc-executor-wasmtime",
+ "staging-tracking-allocator",
+ "tikv-jemalloc-ctl",
+ "tikv-jemallocator",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-core-runtime-api"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "polkadot-node-metrics",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-types",
+ "polkadot-primitives",
+ "schnellru",
+ "sp-consensus-babe",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-jaeger"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "lazy_static",
+ "log",
+ "mick-jaeger",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "polkadot-node-primitives",
+ "polkadot-primitives",
+ "sc-network",
+ "sc-network-types",
+ "sp-core",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
+name = "polkadot-node-metrics"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bs58 0.5.1",
+ "futures",
+ "futures-timer",
+ "log",
+ "parity-scale-codec",
+ "polkadot-primitives",
+ "prioritized-metered-channel",
+ "sc-cli",
+ "sc-service",
+ "sc-tracing",
+ "substrate-prometheus-endpoint",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-network-protocol"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-channel",
+ "async-trait",
+ "bitvec",
+ "derive_more 0.99.18",
+ "fatality",
+ "futures",
+ "hex",
+ "parity-scale-codec",
+ "polkadot-node-jaeger",
+ "polkadot-node-primitives",
+ "polkadot-primitives",
+ "rand 0.8.5",
+ "sc-authority-discovery",
+ "sc-network",
+ "sc-network-types",
+ "sp-runtime",
+ "strum 0.26.3",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-node-primitives"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "bounded-vec",
+ "futures",
+ "parity-scale-codec",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "schnorrkel",
+ "serde",
+ "sp-application-crypto",
+ "sp-consensus-babe",
+ "sp-core",
+ "sp-keystore",
+ "sp-maybe-compressed-blob",
+ "sp-runtime",
+ "thiserror",
+ "zstd 0.12.4",
+]
+
+[[package]]
+name = "polkadot-node-subsystem"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "polkadot-node-jaeger",
+ "polkadot-node-subsystem-types",
+ "polkadot-overseer",
+]
+
+[[package]]
+name = "polkadot-node-subsystem-types"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "bitvec",
+ "derive_more 0.99.18",
+ "futures",
+ "orchestra",
+ "polkadot-node-jaeger",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-primitives",
+ "polkadot-statement-table",
+ "sc-client-api",
+ "sc-network",
+ "sc-network-types",
+ "sc-transaction-pool-api",
+ "smallvec",
+ "sp-api",
+ "sp-authority-discovery",
+ "sp-blockchain",
+ "sp-consensus-babe",
+ "sp-runtime",
+ "substrate-prometheus-endpoint",
+ "thiserror",
+]
+
+[[package]]
+name = "polkadot-node-subsystem-util"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "derive_more 0.99.18",
+ "fatality",
+ "futures",
+ "futures-channel",
+ "itertools 0.10.5",
+ "kvdb",
+ "parity-db",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "pin-project",
+ "polkadot-node-jaeger",
+ "polkadot-node-metrics",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-types",
+ "polkadot-overseer",
+ "polkadot-primitives",
+ "prioritized-metered-channel",
+ "rand 0.8.5",
+ "sc-client-api",
+ "schnellru",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-keystore",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-overseer"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "futures",
+ "futures-timer",
+ "orchestra",
+ "parking_lot 0.12.3",
+ "polkadot-node-metrics",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem-types",
+ "polkadot-primitives",
+ "sc-client-api",
+ "sp-api",
+ "sp-core",
+ "tikv-jemalloc-ctl",
+ "tracing-gum",
+]
+
+[[package]]
 name = "polkadot-parachain-primitives"
 version = "6.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
 dependencies = [
  "bounded-collections",
- "derive_more",
+ "derive_more 0.99.18",
  "parity-scale-codec",
  "polkadot-core-primitives",
  "scale-info",
@@ -6936,6 +8336,327 @@ dependencies = [
  "sp-runtime",
  "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
  "sp-weights",
+]
+
+[[package]]
+name = "polkadot-primitives"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "hex-literal",
+ "log",
+ "parity-scale-codec",
+ "polkadot-core-primitives",
+ "polkadot-parachain-primitives",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-authority-discovery",
+ "sp-consensus-slots",
+ "sp-core",
+ "sp-inherents",
+ "sp-io",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-staking",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "polkadot-rpc"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "jsonrpsee",
+ "mmr-rpc",
+ "pallet-transaction-payment-rpc",
+ "polkadot-primitives",
+ "sc-chain-spec",
+ "sc-client-api",
+ "sc-consensus-babe",
+ "sc-consensus-babe-rpc",
+ "sc-consensus-beefy",
+ "sc-consensus-beefy-rpc",
+ "sc-consensus-epochs",
+ "sc-consensus-grandpa",
+ "sc-consensus-grandpa-rpc",
+ "sc-rpc",
+ "sc-rpc-spec-v2",
+ "sc-sync-state-rpc",
+ "sc-transaction-pool-api",
+ "sp-api",
+ "sp-block-builder",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-babe",
+ "sp-keystore",
+ "sp-runtime",
+ "substrate-frame-rpc-system",
+ "substrate-state-trie-migration-rpc",
+]
+
+[[package]]
+name = "polkadot-runtime-common"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitvec",
+ "frame-benchmarking",
+ "frame-election-provider-support",
+ "frame-support",
+ "frame-system",
+ "impl-trait-for-tuples",
+ "libsecp256k1",
+ "log",
+ "pallet-asset-rate",
+ "pallet-authorship",
+ "pallet-balances",
+ "pallet-broker",
+ "pallet-election-provider-multi-phase",
+ "pallet-fast-unstake",
+ "pallet-identity",
+ "pallet-session",
+ "pallet-staking",
+ "pallet-staking-reward-fn",
+ "pallet-timestamp",
+ "pallet-transaction-payment",
+ "pallet-treasury",
+ "pallet-vesting",
+ "parity-scale-codec",
+ "polkadot-primitives",
+ "polkadot-runtime-parachains",
+ "rustc-hex",
+ "scale-info",
+ "serde",
+ "serde_derive",
+ "slot-range-helper",
+ "sp-api",
+ "sp-core",
+ "sp-inherents",
+ "sp-io",
+ "sp-npos-elections",
+ "sp-runtime",
+ "sp-session",
+ "sp-staking",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "staging-xcm",
+ "staging-xcm-builder",
+ "staging-xcm-executor",
+ "static_assertions",
+]
+
+[[package]]
+name = "polkadot-runtime-metrics"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bs58 0.5.1",
+ "frame-benchmarking",
+ "parity-scale-codec",
+ "polkadot-primitives",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-tracing 16.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "polkadot-runtime-parachains"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "bitflags 1.3.2",
+ "bitvec",
+ "derive_more 0.99.18",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "impl-trait-for-tuples",
+ "log",
+ "pallet-authority-discovery",
+ "pallet-authorship",
+ "pallet-babe",
+ "pallet-balances",
+ "pallet-broker",
+ "pallet-message-queue",
+ "pallet-session",
+ "pallet-staking",
+ "pallet-timestamp",
+ "pallet-vesting",
+ "parity-scale-codec",
+ "polkadot-core-primitives",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "polkadot-runtime-metrics",
+ "rand 0.8.5",
+ "rand_chacha 0.3.1",
+ "rustc-hex",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-core",
+ "sp-inherents",
+ "sp-io",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-session",
+ "sp-staking",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "staging-xcm",
+ "staging-xcm-executor",
+]
+
+[[package]]
+name = "polkadot-service"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "frame-benchmarking",
+ "frame-benchmarking-cli",
+ "frame-support",
+ "frame-system",
+ "frame-system-rpc-runtime-api",
+ "futures",
+ "hex-literal",
+ "is_executable",
+ "kvdb",
+ "kvdb-rocksdb",
+ "log",
+ "mmr-gadget",
+ "pallet-babe",
+ "pallet-staking",
+ "pallet-transaction-payment",
+ "pallet-transaction-payment-rpc-runtime-api",
+ "parity-db",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "polkadot-approval-distribution",
+ "polkadot-availability-bitfield-distribution",
+ "polkadot-availability-distribution",
+ "polkadot-availability-recovery",
+ "polkadot-collator-protocol",
+ "polkadot-core-primitives",
+ "polkadot-dispute-distribution",
+ "polkadot-gossip-support",
+ "polkadot-network-bridge",
+ "polkadot-node-collation-generation",
+ "polkadot-node-core-approval-voting",
+ "polkadot-node-core-av-store",
+ "polkadot-node-core-backing",
+ "polkadot-node-core-bitfield-signing",
+ "polkadot-node-core-candidate-validation",
+ "polkadot-node-core-chain-api",
+ "polkadot-node-core-chain-selection",
+ "polkadot-node-core-dispute-coordinator",
+ "polkadot-node-core-parachains-inherent",
+ "polkadot-node-core-prospective-parachains",
+ "polkadot-node-core-provisioner",
+ "polkadot-node-core-pvf",
+ "polkadot-node-core-pvf-checker",
+ "polkadot-node-core-runtime-api",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-types",
+ "polkadot-node-subsystem-util",
+ "polkadot-overseer",
+ "polkadot-parachain-primitives",
+ "polkadot-primitives",
+ "polkadot-rpc",
+ "polkadot-runtime-parachains",
+ "polkadot-statement-distribution",
+ "sc-authority-discovery",
+ "sc-basic-authorship",
+ "sc-block-builder",
+ "sc-chain-spec",
+ "sc-client-api",
+ "sc-client-db",
+ "sc-consensus",
+ "sc-consensus-babe",
+ "sc-consensus-beefy",
+ "sc-consensus-grandpa",
+ "sc-consensus-slots",
+ "sc-executor",
+ "sc-keystore",
+ "sc-network",
+ "sc-network-common",
+ "sc-network-sync",
+ "sc-offchain",
+ "sc-service",
+ "sc-sync-state-rpc",
+ "sc-sysinfo",
+ "sc-telemetry",
+ "sc-transaction-pool",
+ "sc-transaction-pool-api",
+ "schnellru",
+ "serde",
+ "serde_json",
+ "sp-api",
+ "sp-authority-discovery",
+ "sp-block-builder",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-babe",
+ "sp-consensus-beefy",
+ "sp-consensus-grandpa",
+ "sp-core",
+ "sp-inherents",
+ "sp-io",
+ "sp-keyring",
+ "sp-keystore",
+ "sp-mmr-primitives",
+ "sp-offchain",
+ "sp-runtime",
+ "sp-session",
+ "sp-state-machine",
+ "sp-storage 19.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-timestamp",
+ "sp-transaction-pool",
+ "sp-version",
+ "sp-weights",
+ "staging-xcm",
+ "substrate-prometheus-endpoint",
+ "thiserror",
+ "tracing-gum",
+ "xcm-fee-payment-runtime-api",
+]
+
+[[package]]
+name = "polkadot-statement-distribution"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "arrayvec",
+ "bitvec",
+ "fatality",
+ "futures",
+ "futures-timer",
+ "indexmap 2.6.0",
+ "parity-scale-codec",
+ "polkadot-node-network-protocol",
+ "polkadot-node-primitives",
+ "polkadot-node-subsystem",
+ "polkadot-node-subsystem-util",
+ "polkadot-primitives",
+ "sp-keystore",
+ "sp-staking",
+ "thiserror",
+ "tracing-gum",
+]
+
+[[package]]
+name = "polkadot-statement-table"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "parity-scale-codec",
+ "polkadot-primitives",
+ "sp-core",
+ "tracing-gum",
 ]
 
 [[package]]
@@ -6987,7 +8708,7 @@ dependencies = [
  "polkavm-common",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -6997,7 +8718,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ba81f7b5faac81e528eb6158a6f3c9e0bb1008e0ffa19653bc8dea925ecb429"
 dependencies = [
  "polkavm-derive-impl",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -7030,8 +8751,8 @@ dependencies = [
  "cfg-if",
  "concurrent-queue",
  "hermit-abi 0.4.0",
- "pin-project-lite 0.2.14",
- "rustix 0.38.37",
+ "pin-project-lite 0.2.15",
+ "rustix 0.38.38",
  "tracing",
  "windows-sys 0.59.0",
 ]
@@ -7111,7 +8832,7 @@ source = "git+https://github.com/atleta-network/frontier?branch=atleta-polkadot-
 dependencies = [
  "case",
  "num_enum",
- "prettyplease 0.2.22",
+ "prettyplease 0.2.25",
  "proc-macro2",
  "quote",
  "sp-crypto-hashing",
@@ -7170,12 +8891,12 @@ dependencies = [
 
 [[package]]
 name = "prettyplease"
-version = "0.2.22"
+version = "0.2.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "479cf940fbbb3426c32c5d5176f62ad57549a0bb84773423ba8be9d089f5faba"
+checksum = "64d1ec885c64d0457d564db4ec299b2dae3f9c02808b8ad9c3a089c591b18033"
 dependencies = [
  "proc-macro2",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -7187,7 +8908,7 @@ dependencies = [
  "fixed-hash",
  "impl-codec 0.6.0",
  "impl-rlp",
- "impl-serde",
+ "impl-serde 0.4.0",
  "scale-info",
  "uint 0.9.5",
 ]
@@ -7202,6 +8923,22 @@ dependencies = [
  "impl-codec 0.7.0",
  "impl-num-traits",
  "uint 0.10.0",
+]
+
+[[package]]
+name = "prioritized-metered-channel"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a172e6cc603231f2cf004232eabcecccc0da53ba576ab286ef7baa0cfc7927ad"
+dependencies = [
+ "coarsetime",
+ "crossbeam-queue",
+ "derive_more 0.99.18",
+ "futures",
+ "futures-timer",
+ "nanorand",
+ "thiserror",
+ "tracing",
 ]
 
 [[package]]
@@ -7255,14 +8992,14 @@ checksum = "834da187cfe638ae8abb0203f0b33e5ccdb02a28e7199f2f47b3e2754f50edca"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.88"
+version = "1.0.89"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7c3a7fc5db1e57d5a779a352c8cdb57b29aa4c40cc69c3a68a7fedc815fbf2f9"
+checksum = "f139b0662de085916d1fb67d2b4169d1addddda1919e696f3252b740b629986e"
 dependencies = [
  "unicode-ident",
 ]
@@ -7301,7 +9038,7 @@ checksum = "440f724eba9f6996b75d63681b0a92b06947f1457076d503a4d2e2c8f56442b8"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -7369,7 +9106,7 @@ dependencies = [
  "itertools 0.12.1",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -7430,7 +9167,7 @@ dependencies = [
  "bytes",
  "quick-protobuf",
  "thiserror",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
 ]
 
 [[package]]
@@ -7451,7 +9188,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2e8b432585672228923edbbf64b8b12c14e1112f62e88737655b4a083dbcd78e"
 dependencies = [
  "bytes",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "quinn-proto",
  "quinn-udp",
  "rustc-hash",
@@ -7675,6 +9412,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "reed-solomon-novelpoly"
+version = "2.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "87413ebb313323d431e85d0afc5a68222aaed972843537cbfe5f061cf1b4bcab"
+dependencies = [
+ "derive_more 0.99.18",
+ "fs-err",
+ "static_init",
+ "thiserror",
+]
+
+[[package]]
 name = "ref-cast"
 version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7691,7 +9440,7 @@ checksum = "bcc303e793d3734489387d205e9b186fac9c6cfacedd98cbb2e8a5943595f3e6"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -7721,9 +9470,9 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.11.0"
+version = "1.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38200e5ee88914975b69f657f0801b6f6dccafd44fd9326302a4aaeecfacb1d8"
+checksum = "b544ef1b4eac5dc2db33ea63606ae9ffcfac26c1416a2806ae0bf5f56b201191"
 dependencies = [
  "aho-corasick",
  "memchr",
@@ -7898,7 +9647,7 @@ dependencies = [
  "log",
  "netlink-packet-route",
  "netlink-proto",
- "nix",
+ "nix 0.24.3",
  "thiserror",
  "tokio",
 ]
@@ -7974,9 +9723,9 @@ dependencies = [
 
 [[package]]
 name = "rustix"
-version = "0.38.37"
+version = "0.38.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8acb788b847c24f28525660c4d7758620a7210875711f79e7f663cc152726811"
+checksum = "aa260229e6538e52293eeb577aabd09945a09d6d9cc0fc550ed7529056c2e32a"
 dependencies = [
  "bitflags 2.6.0",
  "errno",
@@ -8102,6 +9851,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "sc-authority-discovery"
+version = "0.34.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "async-trait",
+ "futures",
+ "futures-timer",
+ "ip_network",
+ "libp2p",
+ "linked_hash_set",
+ "log",
+ "multihash 0.17.0",
+ "multihash-codetable",
+ "parity-scale-codec",
+ "prost 0.12.6",
+ "prost-build",
+ "rand 0.8.5",
+ "sc-client-api",
+ "sc-network",
+ "sc-network-types",
+ "sp-api",
+ "sp-authority-discovery",
+ "sp-blockchain",
+ "sp-core",
+ "sp-keystore",
+ "sp-runtime",
+ "substrate-prometheus-endpoint",
+ "thiserror",
+]
+
+[[package]]
 name = "sc-basic-authorship"
 version = "0.34.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -8173,7 +9953,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -8378,6 +10158,62 @@ dependencies = [
  "sp-consensus-babe",
  "sp-core",
  "sp-keystore",
+ "sp-runtime",
+ "thiserror",
+]
+
+[[package]]
+name = "sc-consensus-beefy"
+version = "13.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "array-bytes 6.2.3",
+ "async-channel",
+ "async-trait",
+ "fnv",
+ "futures",
+ "log",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "sc-client-api",
+ "sc-consensus",
+ "sc-network",
+ "sc-network-gossip",
+ "sc-network-sync",
+ "sc-network-types",
+ "sc-utils",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-arithmetic",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-beefy",
+ "sp-core",
+ "sp-crypto-hashing",
+ "sp-keystore",
+ "sp-mmr-primitives",
+ "sp-runtime",
+ "substrate-prometheus-endpoint",
+ "thiserror",
+ "tokio",
+ "wasm-timer",
+]
+
+[[package]]
+name = "sc-consensus-beefy-rpc"
+version = "13.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "futures",
+ "jsonrpsee",
+ "log",
+ "parity-scale-codec",
+ "parking_lot 0.12.3",
+ "sc-consensus-beefy",
+ "sc-rpc",
+ "serde",
+ "sp-consensus-beefy",
+ "sp-core",
  "sp-runtime",
  "thiserror",
 ]
@@ -8687,7 +10523,7 @@ dependencies = [
  "thiserror",
  "tokio",
  "tokio-stream",
- "unsigned-varint",
+ "unsigned-varint 0.7.2",
  "void",
  "wasm-timer",
  "zeroize",
@@ -9045,11 +10881,43 @@ dependencies = [
 ]
 
 [[package]]
+name = "sc-storage-monitor"
+version = "0.16.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "clap",
+ "fs4",
+ "log",
+ "sp-core",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
+name = "sc-sync-state-rpc"
+version = "0.34.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "jsonrpsee",
+ "parity-scale-codec",
+ "sc-chain-spec",
+ "sc-client-api",
+ "sc-consensus-babe",
+ "sc-consensus-epochs",
+ "sc-consensus-grandpa",
+ "serde",
+ "serde_json",
+ "sp-blockchain",
+ "sp-runtime",
+ "thiserror",
+]
+
+[[package]]
 name = "sc-sysinfo"
 version = "27.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
 dependencies = [
- "derive_more",
+ "derive_more 0.99.18",
  "futures",
  "libc",
  "log",
@@ -9123,7 +10991,7 @@ dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -9186,13 +11054,13 @@ dependencies = [
 
 [[package]]
 name = "scale-info"
-version = "2.11.3"
+version = "2.11.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "eca070c12893629e2cc820a9761bedf6ce1dcddc9852984d1dc734b8bd9bd024"
+checksum = "1aa7ffc1c0ef49b0452c6e2986abf2b07743320641ffd5fc63d552458e3b779b"
 dependencies = [
  "bitvec",
  "cfg-if",
- "derive_more",
+ "derive_more 1.0.0",
  "parity-scale-codec",
  "scale-info-derive",
  "serde",
@@ -9200,14 +11068,14 @@ dependencies = [
 
 [[package]]
 name = "scale-info-derive"
-version = "2.11.3"
+version = "2.11.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2d35494501194174bda522a32605929eefc9ecf7e0a326c26db1fdd85881eb62"
+checksum = "46385cc24172cf615450267463f937c10072516359b3ff1cb24228a4a08bf951"
 dependencies = [
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 1.0.109",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -9302,6 +11170,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "seccompiler"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "345a3e4dddf721a478089d4697b83c6c0a8f5bf16086f6c13397e4534eb6e2e5"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "secp256k1"
 version = "0.28.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9386,9 +11263,9 @@ checksum = "388a1df253eca08550bef6c72392cfe7c30914bf41df5269b68cbd6ff8f570a3"
 
 [[package]]
 name = "serde"
-version = "1.0.210"
+version = "1.0.213"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c8e3592472072e6e22e0a54d5904d9febf8508f65fb8552499a1abc7d1078c3a"
+checksum = "3ea7893ff5e2466df8d720bb615088341b295f849602c6956047f8f80f0e9bc1"
 dependencies = [
  "serde_derive",
 ]
@@ -9404,20 +11281,20 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.210"
+version = "1.0.213"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "243902eda00fad750862fc144cea25caca5e20d615af0a81bee94ca738f1df1f"
+checksum = "7e85ad2009c50b58e87caa8cd6dac16bdf511bbfb7af6c33df902396aa480fa5"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
 name = "serde_json"
-version = "1.0.129"
+version = "1.0.132"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6dbcf9b78a125ee667ae19388837dd12294b858d101fdd393cb9d5501ef09eb2"
+checksum = "d726bfaff4b320266d395898905d0eba0345aae23b54aee3a737e260fd46db03"
 dependencies = [
  "itoa",
  "memchr",
@@ -9613,6 +11490,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "826167069c09b99d56f31e9ae5c99049e932a98c9dc2dac47645b08dbbf76ba7"
 
 [[package]]
+name = "slot-range-helper"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "enumn",
+ "parity-scale-codec",
+ "paste",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+]
+
+[[package]]
+name = "slotmap"
+version = "1.0.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dbff4acf519f630b3a3ddcfaea6c06b42174d9a44bc70c620e9ed1649d58b82a"
+dependencies = [
+ "version_check",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9707,11 +11605,11 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 dependencies = [
  "Inflector",
  "blake2 0.10.6",
- "expander",
+ "expander 2.2.1",
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -9758,6 +11656,18 @@ source = "git+https://github.com/paritytech/arkworks-substrate#caa2eed74beb885dd
 dependencies = [
  "ark-ed-on-bls12-381-bandersnatch-ext",
  "sp-crypto-ec-utils",
+]
+
+[[package]]
+name = "sp-authority-discovery"
+version = "26.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "parity-scale-codec",
+ "scale-info",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-runtime",
 ]
 
 [[package]]
@@ -9838,6 +11748,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-consensus-beefy"
+version = "13.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "lazy_static",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-core",
+ "sp-crypto-hashing",
+ "sp-io",
+ "sp-keystore",
+ "sp-mmr-primitives",
+ "sp-runtime",
+ "strum 0.26.3",
+]
+
+[[package]]
 name = "sp-consensus-grandpa"
 version = "13.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -9881,7 +11811,7 @@ dependencies = [
  "futures",
  "hash-db",
  "hash256-std-hasher",
- "impl-serde",
+ "impl-serde 0.4.0",
  "itertools 0.10.5",
  "k256",
  "libsecp256k1",
@@ -9915,7 +11845,7 @@ dependencies = [
 [[package]]
 name = "sp-crypto-ec-utils"
 version = "0.10.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "ark-bls12-377",
  "ark-bls12-377-ext",
@@ -9952,7 +11882,7 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 dependencies = [
  "quote",
  "sp-crypto-hashing",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -9971,17 +11901,17 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
 name = "sp-debug-derive"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -9997,7 +11927,7 @@ dependencies = [
 [[package]]
 name = "sp-externalities"
 version = "0.25.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "environmental",
  "parity-scale-codec",
@@ -10107,6 +12037,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "sp-mmr-primitives"
+version = "26.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "ckb-merkle-mountain-range",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-api",
+ "sp-core",
+ "sp-debug-derive 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-runtime",
+ "thiserror",
+]
+
+[[package]]
 name = "sp-npos-elections"
 version = "26.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -10195,7 +12142,7 @@ dependencies = [
 [[package]]
 name = "sp-runtime-interface"
 version = "24.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "bytes",
  "impl-trait-for-tuples",
@@ -10217,24 +12164,24 @@ version = "17.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
 dependencies = [
  "Inflector",
- "expander",
+ "expander 2.2.1",
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
 name = "sp-runtime-interface-proc-macro"
 version = "17.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "Inflector",
- "expander",
+ "expander 2.2.1",
  "proc-macro-crate 3.2.0",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -10316,14 +12263,14 @@ source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polka
 [[package]]
 name = "sp-std"
 version = "14.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 
 [[package]]
 name = "sp-storage"
 version = "19.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
 dependencies = [
- "impl-serde",
+ "impl-serde 0.4.0",
  "parity-scale-codec",
  "ref-cast",
  "serde",
@@ -10333,9 +12280,9 @@ dependencies = [
 [[package]]
 name = "sp-storage"
 version = "19.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
- "impl-serde",
+ "impl-serde 0.5.0",
  "parity-scale-codec",
  "ref-cast",
  "serde",
@@ -10368,7 +12315,7 @@ dependencies = [
 [[package]]
 name = "sp-tracing"
 version = "16.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "parity-scale-codec",
  "tracing",
@@ -10427,7 +12374,7 @@ name = "sp-version"
 version = "29.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
 dependencies = [
- "impl-serde",
+ "impl-serde 0.4.0",
  "parity-scale-codec",
  "parity-wasm",
  "scale-info",
@@ -10447,7 +12394,7 @@ dependencies = [
  "parity-scale-codec",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -10465,7 +12412,7 @@ dependencies = [
 [[package]]
 name = "sp-wasm-interface"
 version = "20.0.0"
-source = "git+https://github.com/paritytech/polkadot-sdk#7240b474b92028a1645de6fdb9e0a8aa28dc86be"
+source = "git+https://github.com/paritytech/polkadot-sdk#4c618a83d33281fe96f0e2b68a111ed227af22c0"
 dependencies = [
  "anyhow",
  "impl-trait-for-tuples",
@@ -10663,6 +12610,11 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 
 [[package]]
+name = "staging-tracking-allocator"
+version = "2.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+
+[[package]]
 name = "staging-xcm"
 version = "7.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -10778,6 +12730,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "strobe-rs"
+version = "0.8.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fabb238a1cccccfa4c4fb703670c0d157e1256c1ba695abf1b93bd2bb14bab2d"
+dependencies = [
+ "bitflags 1.3.2",
+ "byteorder",
+ "keccak",
+ "subtle 2.6.1",
+ "zeroize",
+]
+
+[[package]]
 name = "strsim"
 version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10821,7 +12786,7 @@ dependencies = [
  "proc-macro2",
  "quote",
  "rustversion",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -10873,6 +12838,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "substrate-state-trie-migration-rpc"
+version = "27.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "jsonrpsee",
+ "parity-scale-codec",
+ "sc-client-api",
+ "sc-rpc-api",
+ "serde",
+ "sp-core",
+ "sp-runtime",
+ "sp-state-machine",
+ "sp-trie",
+ "trie-db",
+]
+
+[[package]]
 name = "substrate-wasm-builder"
 version = "17.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -10916,9 +12898,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.79"
+version = "2.0.85"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "89132cd0bf050864e1d38dc3bbc07a0eb8e7530af26344d3d2bbbef83499f590"
+checksum = "5023162dfcd14ef8f32034d8bcd4cc5ddc61ef7a247c024a33e24e1f24d21b56"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -10935,6 +12917,17 @@ dependencies = [
  "quote",
  "syn 1.0.109",
  "unicode-xid",
+]
+
+[[package]]
+name = "synstructure"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c8af7666ab7b6390ab78131fb5b0fce11d6b7a6951602017c35fa82800708971"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -10979,7 +12972,7 @@ dependencies = [
  "cfg-if",
  "fastrand",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "windows-sys 0.59.0",
 ]
 
@@ -10998,7 +12991,7 @@ version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4f599bd7ca042cfdf8f4512b277c02ba102247820f9d9d4a9f521f496751a6ef"
 dependencies = [
- "rustix 0.38.37",
+ "rustix 0.38.38",
  "windows-sys 0.59.0",
 ]
 
@@ -11010,22 +13003,22 @@ checksum = "3369f5ac52d5eb6ab48c6b4ffdc8efbcad6b89c765749064ba298f2c68a16a76"
 
 [[package]]
 name = "thiserror"
-version = "1.0.64"
+version = "1.0.65"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d50af8abc119fb8bb6dbabcfa89656f46f84aa0ac7688088608076ad2b459a84"
+checksum = "5d11abd9594d9b38965ef50805c5e469ca9cc6f197f883f717e0269a3057b3d5"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.64"
+version = "1.0.65"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "08904e7672f5eb876eaaf87e0ce17857500934f4981c4a0ab2b4aa98baac7fc3"
+checksum = "ae71770322cbd277e69d762a16c444af02aa0575ac0d174f0b9562d3b37f8602"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -11054,6 +13047,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "thrift"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b82ca8f46f95b3ce96081fe3dd89160fdea970c254bb72925255d1b62aae692e"
+dependencies = [
+ "byteorder",
+ "integer-encoding",
+ "log",
+ "ordered-float",
+ "threadpool",
+]
+
+[[package]]
+name = "tikv-jemalloc-ctl"
+version = "0.5.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "619bfed27d807b54f7f776b9430d4f8060e66ee138a28632ca898584d462c31c"
+dependencies = [
+ "libc",
+ "paste",
+ "tikv-jemalloc-sys",
+]
+
+[[package]]
 name = "tikv-jemalloc-sys"
 version = "0.5.4+5.3.0-patched"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11061,6 +13078,16 @@ checksum = "9402443cb8fd499b6f327e40565234ff34dbda27460c5b47db0db77443dd85d1"
 dependencies = [
  "cc",
  "libc",
+]
+
+[[package]]
+name = "tikv-jemallocator"
+version = "0.5.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "965fe0c26be5c56c94e38ba547249074803efd52adfb66de62107d95aab3eaca"
+dependencies = [
+ "libc",
+ "tikv-jemalloc-sys",
 ]
 
 [[package]]
@@ -11120,16 +13147,16 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.40.0"
+version = "1.41.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e2b070231665d27ad9ec9b8df639893f46727666c6767db40317fbe920a5d998"
+checksum = "145f3413504347a2be84393cc8a7d2fb4d863b375909ea59f2158261aa258bbb"
 dependencies = [
  "backtrace",
  "bytes",
  "libc",
  "mio",
  "parking_lot 0.12.3",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "signal-hook-registry",
  "socket2 0.5.7",
  "tokio-macros",
@@ -11144,7 +13171,7 @@ checksum = "693d596312e88961bc67d7f1f97af8a70227d9f90c31bba5806eec004978d752"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -11164,7 +13191,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4f4e6ce100d0eb49a2734f8c0812bcd324cf357d21810932c5df6b96ef2b86f1"
 dependencies = [
  "futures-core",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "tokio",
  "tokio-util",
 ]
@@ -11194,7 +13221,7 @@ dependencies = [
  "futures-core",
  "futures-io",
  "futures-sink",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "tokio",
 ]
 
@@ -11250,7 +13277,7 @@ dependencies = [
  "futures-core",
  "futures-util",
  "pin-project",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "tower-layer",
  "tower-service",
  "tracing",
@@ -11269,7 +13296,7 @@ dependencies = [
  "http",
  "http-body",
  "http-range-header",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "tower-layer",
  "tower-service",
 ]
@@ -11293,7 +13320,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c3523ab5a71916ccf420eebdf5521fcef02141234bbc0b8a49f2fdc4544364ef"
 dependencies = [
  "log",
- "pin-project-lite 0.2.14",
+ "pin-project-lite 0.2.15",
  "tracing-attributes",
  "tracing-core",
 ]
@@ -11306,7 +13333,7 @@ checksum = "34704c8d6ebcbc939824180af020566b01a7c01f80641264eba0999f6c2b6be7"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -11327,6 +13354,29 @@ checksum = "97d095ae15e245a057c8e8451bab9b3ee1e1f68e9ba2b4fbc18d0ac5237835f2"
 dependencies = [
  "pin-project",
  "tracing",
+]
+
+[[package]]
+name = "tracing-gum"
+version = "7.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "coarsetime",
+ "polkadot-primitives",
+ "tracing",
+ "tracing-gum-proc-macro",
+]
+
+[[package]]
+name = "tracing-gum-proc-macro"
+version = "5.0.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "expander 2.2.1",
+ "proc-macro-crate 3.2.0",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -11633,6 +13683,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "unsigned-varint"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "eb066959b24b5196ae73cb057f45598450d2c5f71460e98c49b738086eff9c06"
+
+[[package]]
 name = "untrusted"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11753,6 +13809,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
 
 [[package]]
+name = "wasix"
+version = "0.12.21"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c1fbb4ef9bbca0c1170e0b00dd28abc9e3b68669821600cad1caaed606583c6d"
+dependencies = [
+ "wasi 0.11.0+wasi-snapshot-preview1",
+]
+
+[[package]]
 name = "wasm-bindgen"
 version = "0.2.95"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -11774,7 +13839,7 @@ dependencies = [
  "once_cell",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
  "wasm-bindgen-shared",
 ]
 
@@ -11808,7 +13873,7 @@ checksum = "26c6ab57572f7a24a4985830b120de1594465e5d500f24afe89e16b4e833ef68"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
  "wasm-bindgen-backend",
  "wasm-bindgen-shared",
 ]
@@ -12166,7 +14231,7 @@ dependencies = [
  "either",
  "home",
  "once_cell",
- "rustix 0.38.37",
+ "rustix 0.38.38",
 ]
 
 [[package]]
@@ -12560,6 +14625,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "xcm-fee-payment-runtime-api"
+version = "0.1.0"
+source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
+dependencies = [
+ "frame-support",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-api",
+ "sp-runtime",
+ "sp-std 14.0.0 (git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0)",
+ "sp-weights",
+ "staging-xcm",
+]
+
+[[package]]
 name = "xcm-procedural"
 version = "7.0.0"
 source = "git+https://github.com/atleta-network/polkadot-sdk?branch=atleta-polkadot-v1.11.0#4565359887380c8cb94e0987e521648466354195"
@@ -12567,7 +14647,7 @@ dependencies = [
  "Inflector",
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -12611,7 +14691,7 @@ checksum = "fa4f8080344d4671fb4e831a13ad1e68092748387dfc4f55e356242fae12ce3e"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]
@@ -12631,7 +14711,7 @@ checksum = "ce36e65b0d2999d2aafac989fb249189a141aee1f53c612c1f37d72631959f69"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.79",
+ "syn 2.0.85",
 ]
 
 [[package]]

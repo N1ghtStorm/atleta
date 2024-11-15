@@ -27,9 +27,8 @@ mod benchmarks {
         let caller: T::AccountId = whitelisted_caller();
         let who: T::AccountId = caller.clone();
         #[extrinsic_call]
-        crate::benchmarking::benchmarks::request_funds(
+        crate::benchmarking::benchmarks::refill_faucet(
             RawOrigin::Signed(caller.clone()),
-            who,
             amount,
         );
 

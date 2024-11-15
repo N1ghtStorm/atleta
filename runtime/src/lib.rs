@@ -754,14 +754,15 @@ parameter_types! {
     pub const FaucetPalletId: PalletId = PalletId(*b"ATFAUCET");
 }
 
-// impl pallet_faucet::Config for Runtime {
-//     type AccumulationPeriod = AccumulationPeriod;
-//     type RuntimeEvent = RuntimeEvent;
-//     type Currency = Balances;
-//     type PalletId = FaucetPalletId;
-//     type FaucetAmount = FaucetAmount;
-//     type WeightInfo = pallet_faucet::weights::FaucetWeight<Runtime>;
-// }
+#[cfg(any(feature = "testnet-runtime", feature = "devnet-runtime"))]
+impl pallet_faucet::Config for Runtime {
+    type AccumulationPeriod = AccumulationPeriod;
+    type RuntimeEvent = RuntimeEvent;
+    type Currency = Balances;
+    type PalletId = FaucetPalletId;
+    type FaucetAmount = FaucetAmount;
+    type WeightInfo = pallet_faucet::weights::FaucetWeight<Runtime>;
+}
 
 // nomination pools
 parameter_types! {
@@ -1569,7 +1570,8 @@ construct_runtime!(
         Babe: pallet_babe,
         Grandpa: pallet_grandpa,
         Balances: pallet_balances,
-        // Faucet: pallet_faucet,
+        #[cfg(any(feature = "testnet-runtime", feature = "devnet-runtime"))]
+        Faucet: pallet_faucet,
         TransactionPayment: pallet_transaction_payment,
         Sudo: pallet_sudo,
         Treasury: pallet_treasury,

@@ -173,7 +173,7 @@ pub mod pallet {
             let account_id = Self::account_id();
 
             // Transfer funds from the sender to the faucet account
-            T::Currency::transfer(&sender, &account_id, amount, ExistenceRequirement::AllowDeath)?;
+            T::Currency::transfer(&sender, &account_id, amount, ExistenceRequirement::KeepAlive)?;
 
             Ok(())
         }

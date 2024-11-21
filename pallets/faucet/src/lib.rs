@@ -80,8 +80,8 @@ pub mod pallet {
     #[pallet::genesis_config]
     #[derive(frame_support::DefaultNoBound)]
     pub struct GenesisConfig<T: Config> {
-        #[serde(skip)]
-        _config: sp_std::marker::PhantomData<T>,
+        /// Initial balance of faucet account
+        pub initial_balance: BalanceOf<T>,
     }
 
     #[pallet::genesis_build]
@@ -91,8 +91,10 @@ pub mod pallet {
             let account_id = <Pallet<T>>::account_id();
             let min = T::Currency::minimum_balance();
 
-            if T::Currency::free_balance(&account_id) < min {
-                let _ = T::Currency::make_free_balance_be(&account_id, min);
+            let initial_balance = self.initial_balance.max(min);
+
+            if T::Currency::free_balance(&account_id) < initial_balance {
+                let _ = T::Currency::make_free_balance_be(&account_id, initial_balance);
             }
         }
     }

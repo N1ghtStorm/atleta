@@ -30,7 +30,7 @@ jobs:
         target: wasm32-unknown-unknown
         components: rustfmt clippy rust-src
 
-    - run: sudo apt-get install protobuf-compiler jq ripgrep
+    - run: sudo apt-get install protobuf-compiler jq ripgrep -y
 
     - run: cargo build --locked
 
@@ -60,7 +60,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - run: sudo apt-get install shellcheck fd-find
+    - run: sudo apt-get install shellcheck fd-find -y
 
     - name: Run ShellCheck
       run: fdfind --type executable --exec bash -c 'echo {}; shellcheck {}'

@@ -22,12 +22,13 @@ use super::{
 };
 use frame_support::{
     parameter_types,
-    traits::{Contains, Everything, Nothing},
+    traits::{Contains, Everything, Get, Nothing, OriginTrait},
 };
 use frame_system::EnsureRoot;
 use runtime_common::xcm_sender::{ChildParachainRouter, ExponentialPrice};
 use sp_core::ConstU32;
-use xcm::latest::prelude::*;
+use sp_runtime::traits::TryConvert;
+use xcm::latest::{prelude::*, Asset, AssetId, Junction, Location, NetworkId};
 use xcm_builder::{
     AccountId32Aliases, AllowUnpaidExecutionFrom, ChildParachainConvertsVia, DescribeAllTerminal,
     DescribeFamily, FixedWeightBounds, FrameTransactionalProcessor, FungibleAdapter,
@@ -193,6 +194,26 @@ impl xcm_executor::Config for XcmConfig {
     type HrmpNewChannelOpenRequestHandler = ();
     type HrmpChannelAcceptedHandler = ();
     type HrmpChannelClosingHandler = ();
+}
+
+pub struct SignedToAccountId20<Origin, AccountId, Network>(
+    sp_std::marker::PhantomData<(Origin, AccountId, Network)>,
+);
+impl<Origin: OriginTrait + Clone, AccountId: Into<[u8; 20]>, Network: Get<NetworkId>>
+    TryConvert<Origin, Location> for SignedToAccountId20<Origin, AccountId, Network>
+where
+    Origin::PalletsOrigin: From<frame_system::RawOrigin<AccountId>>
+        + TryInto<frame_system::RawOrigin<AccountId>, Error = Origin::PalletsOrigin>,
+{
+    fn try_convert(o: Origin) -> Result<Location, Origin> {
+        o.try_with_caller(|caller| match caller.try_into() {
+            Ok(frame_system::RawOrigin::Signed(who)) => {
+                Ok(Junction::AccountKey20 { key: who.into(), network: Some(Network::get()) }.into())
+            },
+            Ok(other) => Err(other.into()),
+            Err(other) => Err(other),
+        })
+    }
 }
 
 /// location of this chain.

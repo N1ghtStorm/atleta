@@ -30,7 +30,7 @@ use sp_core::ConstU32;
 use sp_runtime::traits::TryConvert;
 use xcm::latest::{prelude::*, Asset, AssetId, Junction, Location, NetworkId};
 use xcm_builder::{
-    AccountId32Aliases, AllowUnpaidExecutionFrom, ChildParachainConvertsVia, DescribeAllTerminal,
+    AccountKey20Aliases, AllowUnpaidExecutionFrom, ChildParachainConvertsVia, DescribeAllTerminal,
     DescribeFamily, FixedWeightBounds, FrameTransactionalProcessor, FungibleAdapter,
     HashedDescription, IsConcrete, MintLocation, SignedAccountKey20AsNative, WithUniqueTopic,
 };
@@ -58,8 +58,8 @@ parameter_types! {
 pub type LocationConverter = (
     // We can convert a child parachain using the standard `AccountId` conversion.
     ChildParachainConvertsVia<ParaId, AccountId>,
-    // We can directly alias an `AccountId32` into a local account.
-    AccountId32Aliases<ThisNetwork, AccountId>,
+    // We can directly alias an `AccountId20` into a local account.
+    AccountKey20Aliases<ThisNetwork, AccountId>,
     // Foreign locations alias into accounts according to a hash of their standard description.
     HashedDescription<AccountId, DescribeFamily<DescribeAllTerminal>>,
 );
@@ -217,7 +217,7 @@ where
 }
 
 /// location of this chain.
-pub type LocalOriginToLocation = ();
+pub type LocalOriginToLocation = SignedToAccountId20<RuntimeOrigin, AccountId, ThisNetwork>;
 
 impl pallet_xcm::Config for Runtime {
     type RuntimeEvent = RuntimeEvent;

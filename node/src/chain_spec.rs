@@ -193,7 +193,9 @@ fn mainnet_genesis(
         "babe": {
             "epochConfig": Some(BABE_GENESIS_EPOCH_CONFIG),
         },
-        "configuration": default_parachains_host_configuration(),
+        "configuration": {
+            "config": default_parachains_host_configuration(),
+        },
         "registrar": {
             "nextFreeParaId": 2000
         },

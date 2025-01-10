@@ -56,11 +56,12 @@ use frame_support::{
         fungible::HoldConsideration,
         tokens::{PayFromAccount, UnityAssetBalanceConversion},
         ConstBool, ConstU32, ConstU64, ConstU8, EitherOfDiverse, EqualPrivilegeOnly, FindAuthor,
-        KeyOwnerProofSystem, LinearStoragePrice, LockIdentifier, OnFinalize,
+        KeyOwnerProofSystem, LinearStoragePrice, LockIdentifier, OnFinalize, ProcessMessage,
+        ProcessMessageError,
     },
     weights::{
         constants::{BlockExecutionWeight, ExtrinsicBaseWeight, WEIGHT_REF_TIME_PER_MILLIS},
-        IdentityFee, Weight, WeightToFee,
+        IdentityFee, Weight, WeightMeter, WeightToFee,
     },
     PalletId,
 };
@@ -90,6 +91,7 @@ use runtime_parachains::{
     disputes as parachains_disputes,
     disputes::slashing as parachains_slashing,
     dmp as parachains_dmp, hrmp as parachains_hrmp, inclusion as parachains_inclusion,
+    inclusion::{AggregateMessageOrigin, UmpQueueId},
     initializer as parachains_initializer, origin as parachains_origin, paras as parachains_paras,
     paras_inherent as parachains_paras_inherent,
     runtime_api_impl::{
@@ -107,7 +109,10 @@ use polkadot_primitives::{
     PARACHAIN_KEY_TYPE_ID,
 };
 use runtime_common::{paras_registrar, paras_sudo_wrapper, slots};
-use xcm::{IntoVersion, VersionedAssetId, VersionedAssets, VersionedLocation, VersionedXcm};
+use xcm::{
+    opaque::v4::Junction, IntoVersion, VersionedAssetId, VersionedAssets, VersionedLocation,
+    VersionedXcm,
+};
 use xcm_fee_payment_runtime_api::Error as XcmPaymentApiError;
 // other
 use static_assertions::const_assert;
@@ -1438,7 +1443,7 @@ impl parachains_inclusion::Config for Runtime {
     type RuntimeEvent = RuntimeEvent;
     type DisputesHandler = ParasDisputes;
     type RewardValidators = RewardValidators;
-    type MessageQueue = ();
+    type MessageQueue = MessageQueue;
     type WeightInfo = weights::runtime_parachains_inclusion::WeightInfo<Runtime>;
 }
 
@@ -1454,17 +1459,6 @@ impl parachains_paras::Config for Runtime {
     type NextSessionRotation = Babe;
     type OnNewHead = Registrar;
     type AssignCoretime = CoretimeAssignmentProvider;
-}
-
-parameter_types! {
-    /// Amount of weight that can be spent per block to service messages.
-    ///
-    /// # WARNING
-    ///
-    /// This is not a good value for para-chains since the `Scheduler` already uses up to 80% block weight.
-    pub MessageQueueServiceWeight: Weight = Perbill::from_percent(20) * RuntimeBlockWeights::get().max_block;
-    pub const MessageQueueHeapSize: u32 = 65_536;
-    pub const MessageQueueMaxStale: u32 = 8;
 }
 
 impl parachains_dmp::Config for Runtime {}
@@ -1532,6 +1526,56 @@ impl parachains_slashing::Config for Runtime {
     >;
     type WeightInfo = parachains_slashing::TestWeightInfo;
     type BenchmarkingConfig = parachains_slashing::BenchConfig<1000>;
+}
+
+parameter_types! {
+    /// Amount of weight that can be spent per block to service messages.
+    ///
+    /// # WARNING
+    ///
+    /// This is not a good value for para-chains since the `Scheduler` already uses up to 80% block weight.
+    pub MessageQueueServiceWeight: Weight = Perbill::from_percent(20) * RuntimeBlockWeights::get().max_block;
+    pub const MessageQueueHeapSize: u32 = 65_536;
+    pub const MessageQueueMaxStale: u32 = 8;
+}
+
+/// Message processor to handle any messages that were enqueued into the `MessageQueue` pallet.
+pub struct MessageProcessor;
+impl ProcessMessage for MessageProcessor {
+    type Origin = AggregateMessageOrigin;
+
+    fn process_message(
+        message: &[u8],
+        origin: Self::Origin,
+        meter: &mut WeightMeter,
+        id: &mut [u8; 32],
+    ) -> Result<bool, ProcessMessageError> {
+        let para = match origin {
+            AggregateMessageOrigin::Ump(UmpQueueId::Para(para)) => para,
+        };
+        xcm_builder::ProcessXcmMessage::<
+            Junction,
+            xcm_executor::XcmExecutor<xcm_config::XcmConfig>,
+            RuntimeCall,
+        >::process_message(message, Junction::Parachain(para.into()), meter, id)
+    }
+}
+
+impl pallet_message_queue::Config for Runtime {
+    type RuntimeEvent = RuntimeEvent;
+    type Size = u32;
+    type HeapSize = MessageQueueHeapSize;
+    type MaxStale = MessageQueueMaxStale;
+    type ServiceWeight = MessageQueueServiceWeight;
+    type IdleMaxServiceWeight = MessageQueueServiceWeight;
+    #[cfg(not(feature = "runtime-benchmarks"))]
+    type MessageProcessor = MessageProcessor;
+    #[cfg(feature = "runtime-benchmarks")]
+    type MessageProcessor =
+        pallet_message_queue::mock_helpers::NoopMessageProcessor<AggregateMessageOrigin>;
+    type QueueChangeHandler = ParaInclusion;
+    type QueuePausedQuery = ();
+    type WeightInfo = weights::pallet_message_queue::WeightInfo<Runtime>;
 }
 
 parameter_types! {
@@ -1633,6 +1677,7 @@ construct_runtime!(
         ParasSlashing: parachains_slashing = 82,
         OnDemandAssignmentProvider: parachains_assigner_on_demand = 83,
         CoretimeAssignmentProvider: parachains_assigner_coretime = 84,
+        MessageQueue: pallet_message_queue = 85,
 
         // Parachain onboarding pallets
         Registrar: paras_registrar = 90,
